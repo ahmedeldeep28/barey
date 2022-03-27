@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <title>Document</title>
+</head>
+
+<body dir="rtl">
+
+    <%- include('./part/sidebar'); %>
+
+
+    <div class="content-page">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="title-page mb-4 mt-2">
+                    كل المقالات
+                </h1>
+            </div>
+
+            <div class="row">
+                <% for(let item of articles) { %>
+                    <div class="col-md-4 mt-4">
+                        <a href="/<%= item.url%>">
+                            <div class="card" dir="rtl">
+                                <div class="card-head">
+                                    <img src="/<%= item.image%>" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="/<%= item.url%>"><%= item.title%></a></h5>
+                                </div>
+                                <div class="card-footer">
+                                    <a href="/<%= item.url%>" class="btn btn-secondary btn-sm">اقرا المقال الان</a>
+                                    <a href="/blog/delete/<%= item._id%>" class="btn btn-outline-danger btn-sm">حذف</a>
+
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <script src="/js/dashbord.js"></script>
+</body>
+
+</html>

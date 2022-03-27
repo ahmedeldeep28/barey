@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <title>Document</title>
+</head>
+
+<body dir="rtl">
+
+    <%- include('./part/sidebar'); %>
+
+    <div class="content-page">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="title-page mb-4 mt-2">
+                    اضف منتج
+                </h1>
+                <form action="/dashbord/product/create" method="post">
+                    <div class="control">
+                        <label class="form-label" for="">اسم المنتج</label>
+                        <input class="form-control mb-3" type="text" name="name" placeholder="اكتب اسم المنتج">
+                    </div>
+                    <div class="control">
+                        <label class="form-label" for="">السعر</label>
+                        <input class="form-control mb-3" type="text" name="price">
+                    </div>
+                    <div class="control">
+                        <label class="form-label" for="">نوع المنتج</label>
+                        <select class="form-control mb-3" name="catagory" id="">
+                            <option value="عسل نحل">عسل نحل</option>
+                            <option value="خلطات">خلطات</option>
+                        </select>
+                    </div>
+                    <div class="control">
+                        <label class="form-label" for="">وصف المنتج</label>
+                        <textarea class="form-control mb-3" type="text" name="desc" placeholder="اكتب وصف المنتج"></textarea>
+                    </div>
+                    <div class="control">
+                        <label class="form-label" for="">صورة المنتج</label>
+                        <input class="form-control mb-3" type="file" name="image">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">حفظ البيانات</button>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+<script src="/js/dashbord.js"></script>
+
+</html>

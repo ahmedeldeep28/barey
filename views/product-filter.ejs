@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>shope</title>
+</head>
+
+<body>
+
+    <%- include('./part/navbar'); %>
+
+        <div class="header-page ">
+            <div class="caption text-center">
+                <span class="fs-4 text-primary">المتجر الخاص بنا</span>
+                <h2 class="fs-2">كل المنتجات لدينا تجدها هنا</h2>
+            </div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 230">
+            <path fill="#e3ece3ff" fill-opacity="1"
+                d="M0,32L120,48C240,64,480,96,720,96C960,96,1200,64,1320,48L1440,32L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
+            </path>
+        </svg>
+
+        <section class="fillter pt-0 pb-2" dir="rtl">
+            <div class="container">
+                <h4>انواع المنتجات</h4>
+                <a href="/shop" type="submit" class="btn btn-outline-primary mt-1">كل المنتجات</a>
+                <a href="/shop/عسل نحل" type="submit"
+                    class="btn <%= catagory === 'عسل نحل' ? 'btn-primary': 'btn-outline-primary' %> mt-1">عسل نحل</a>
+                <a href="/shop/خلطات صحية" type="submit"
+                    class="btn <%= catagory === 'خلطات صحية' ? 'btn-primary': 'btn-outline-primary' %> mt-1">خلطات
+                    صحية</a>
+                <a href="/shop/زيوت طبيعية" type="submit"
+                    class="btn <%= catagory === 'زيوت طبيعية' ? 'btn-primary': 'btn-outline-primary' %> mt-1">زيوت
+                    طبيعية</a>
+                <a href="/shop/منتجات نحل" type="submit"
+                    class="btn <%= catagory === 'منتجات نحل' ? 'btn-primary': 'btn-outline-primary' %> mt-1">منتجات
+                    النحل</a>
+            </div>
+        </section>
+        <section class="product pt-2" dir="rtl">
+            <div class="container">
+                <div class="row">
+                    <% for(let product of products) { %>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-4 mt-4">
+                            <div class="card text-center pb-2">
+                                <div class="card-head">
+                                    <%if(product.newPrice){ %>
+                                        <div class="discont bg-danger text-light">
+                                            <%= product.price - product.newPrice %>%
+                                        </div>
+                                        <%}%>
+                                            <img src="/<%= product.image[0] %>" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title mb-3">
+                                        <%= product.name%>
+                                    </h4>
+                                    <p class="card-text">
+                                        <%- product.desc.substring(0,80)%> ...
+                                    </p>
+                                    <div class="price text-success pb-2 h5">
+                                        <%if(product.newPrice){ %>
+                                            <span class="text-dark text-decoration-line-through fw-ligh">
+                                                <%= product.price%>
+                                            </span> -
+                                            <span>
+                                                <%= product.newPrice%> جنية
+                                            </span>
+                                            <%}else{%>
+                                                <%= product.price%>جنية
+                                                    <%}%>
+                                    </div>
+
+                                    <a href="/product/<%= product.url%>" class="btn btn-primary btn-sm mt-2">اطلب العسل
+                                        الان</a>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script src="/js/jqoury.min.js"></script>
+        <script src="/js/Popper.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/app.js"></script>
+</body>
+
+</html>

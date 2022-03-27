@@ -1,0 +1,29 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light pt-3 pb-3">
+    <div class="container">
+        <a class="navbar-brand" href="#">raheg</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" dir="rtl">
+            <ul class="navbar-nav me-auto">
+                <li class="navbar-item">
+                    <a href="/" class="nav-link <%= pageName === 'home' ? 'active' : ''%>">الرئيسية</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/shop" class="nav-link <%= pageName === 'shop' ? 'active' : ''%>">المتجر</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/offer" class="nav-link <%= pageName === 'offer' ? 'active' : ''%>">العروض</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/blog" class="nav-link <%= pageName === 'blog' ? 'active' : ''%>">المقالات</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="/contact" class="nav-link <%= pageName === 'contact' ? 'active' : ''%>">اتصل بنا</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

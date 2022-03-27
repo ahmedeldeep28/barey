@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>shope</title>
+</head>
+<body>
+    <%- include('./part/navbar'); %>
+    
+    <div class="header-page ">
+        <div class="caption text-center">
+            <span class="fs-5 text-primary">منشوراتنا</span>
+            <h2 class="fs-2">مقالات كتبناها من اجلكم</h2>
+        </div>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 230">
+        <path fill="#e3ece3ff" fill-opacity="1" d="M0,32L120,48C240,64,480,96,720,96C960,96,1200,64,1320,48L1440,32L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
+    </svg>
+
+    <section class="blog blog-pae pt-0" dir="rtl" id="blog">
+        <div class="container">
+            <div class="row">
+                <% for(let item of articles) { %>
+                    <div class="col-md-6 mt-4">
+                        <a href="/artcile/<%= item.url%>">
+                            <div class="card" dir="rtl">
+                                <div class="card-head">
+                                    <img src="<%= item.image%>" class="card-img-top" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><a href="/artcile/<%= item.url%>"><%= item.title%></a></h5>
+                                    <p class="card-text"><%= item.desc.substring(0,200)%>...</p>
+                                    <a href="/artcile/<%= item.url%>" class="btn btn-outline-secondary btn-sm">اقرا المقال الان</a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                <% } %>
+                
+            </div>
+                
+        </div>
+        </div>
+    </section>
+
+
+    <script src="/js/jqoury.min.js"></script>
+    <script src="/js/Popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>

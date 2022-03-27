@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>contact</title>
+</head>
+<body>
+    <%- include('./part/navbar'); %>
+
+    <div class="header-page ">
+        <div class="caption text-center">
+            <span class="fs-5 text-primary">تواصل معنا</span>
+            <h2 class="fs-2">اتصل بنا في الحال</h2>
+        </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 230">
+        <path fill="#e3ece3ff" fill-opacity="1" d="M0,32L120,48C240,64,480,96,720,96C960,96,1200,64,1320,48L1440,32L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"></path>
+    </svg>
+
+    <section class="contact" dir="rtl" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mt-5">
+                    <form action="">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">اسمك</label>
+                            <input type="text" class="form-control" placeholder="اكتب اسمك كامل">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">رقم الموبيل</label>
+                            <input type="text" class="form-control" placeholder="اكتب رقم الموبيل">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">الرسالة</label>
+                            <textarea class="form-control" name="" id="" cols="30" rows="10" placeholder="اكتب رسالتك هنا"></textarea>
+                        </div>
+                        <button class="btn btn-primary">ارسال الان</button>
+                    </form>
+                </div>
+                <div class="col-md-6 d-none d-md-flex">
+                    <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_qumw8rhu.json"  background="transparent"  speed="1"  style="width: 100%;"  loop autoplay></lottie-player>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="/js/jqoury.min.js"></script>
+    <script src="/js/Popper.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <title>Document</title>
+</head>
+
+<body dir="rtl">
+
+    <%- include('./part/sidebar'); %>
+
+
+        <div class="content-page">
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h3 class="title-page">طلبات جاري توصيلها</h3>
+
+                    <table class="table text-center align-middle table-responsive table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">العميل</th>
+                                <th scope="col">رقم الموبيل</th>
+                                <th scope="col">المحافظه</th>
+                                <th scope="col">العنوان</th>
+                                <th scope="col">المنتج</th>
+                                <th scope="col">الكمية</th>
+                                <th scope="col">الاجمالي</th>
+                                <th scope="col">الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let item of orderProcess) { %>
+                                <tr>
+                                    <th scope="col">
+                                        <%= item.fullName%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.phone%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.area%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.address%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.productName%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.amount%>
+                                            <%= item.typeAmount%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.total%>
+                                    </th>
+
+                                    <th scope="col">
+                                        <form action="/dashbord/order/update" method="post">
+                                            <input type="hidden" name="orderId" value="<%= item._id%>">
+                                            <select class="form-select" name="newStatus" onChange="this.form.submit()">
+                                                <%if(item.status==="جاري التوصيل" ){%>
+                                                    <option selected value="جاري التوصيل">جاري التوصيل</option>
+                                                    <option value="تم التوصيل">تم التوصيل</option>
+                                                    <%}else{%>
+                                                        <option selected value="تم التوصيل">تم التوصيل</option>
+                                                        <option value="جاري التوصيل">جاري التوصيل</option>
+                                                        <%}%>
+                                            </select>
+                                        </form>
+                                    </th>
+                                </tr>
+                                <%}%>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h3 class="title-page">طلبات تم توصيلها</h3>
+                    <table class="table text-center table-bordered table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">العميل</th>
+                                <th scope="col">رقم الموبيل</th>
+                                <th scope="col">المحافظه</th>
+                                <th scope="col">العنوان</th>
+                                <th scope="col">المنتج</th>
+                                <th scope="col">الكمية</th>
+                                <th scope="col">السعر الاجمالي</th>
+                                <th scope="col">الحالة</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for(let item of orderFinished) { %>
+                                <tr>
+                                    <th scope="col">
+                                        <%= item.fullName%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.phone%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.area%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.address%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.productName%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.amount%>
+                                            <%= item.typeAmount%>
+                                    </th>
+                                    <th scope="col">
+                                        <%= item.total%>
+                                    </th>
+
+                                    <th scope="col text-success">تم التوصيل</th>
+                                </tr>
+                                <%}%>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <script src="/js/dashbord.js"></script>
+</body>
+
+</html>

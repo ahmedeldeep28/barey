@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>صفحة طلب المنتج</title>
+</head>
+
+<body>
+
+
+    <%- include('./part/navbar'); %>
+
+        <section class="product_details" dir="rtl">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mb-4 order-2 order-md-1">
+                        <h1>
+                            <%= product.name%>
+                        </h1>
+
+                        <h5 class="mt-3"><strong>السعر: </strong>
+                            <%if(product.newPrice){ %>
+                                <span class="text-dark text-decoration-line-through fw-ligh"><%= product.price%></span> -
+                                <span class="text-success">
+                                    <%= product.newPrice%> جنية
+                                </span>
+                                <%}else{%>
+                                    <span class="text-success">
+                                        <%= product.price%>جنية
+                                    </span>
+                                <%}%>
+                        </h5>
+                        <p class="desc mt-3 lead">
+                            <%= product.desc%>
+                        </p>
+                        <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            data-bs-whatever="@getbootstrap">شراء المنتج الان
+                        </button>
+
+                    </div>
+                    <div class="col-md-6 mb-4 order-1 order-md-2">
+                        <div class="swiper swiper_product" dir="ltr">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="/<%= product.image[0]%>" alt="" srcset="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/<%= product.image[1]%>" alt="" srcset="">
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/<%= product.image[2]%>" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+                    </div>
+                </div>
+        </section>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-hidden="true" dir="rtl">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">املئ البيانات من اجل طلب المنتج</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/order/create" method="post" id="requst-order">
+                            <input type="text" name="productName" value="<%= product.name%>" hidden>
+                            <input type="text" name="productId" value="<%= product._id%>" hidden>
+                            <input type="text" name="typeAmount" value="<%= product.typeAmount%>" hidden>
+                            <input type="text" name="productPrice" id="product-price" value="<%= product.price%>"
+                                hidden>
+
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">اسمك</label>
+                                <input type="text" class="form-control" name="fullName" placeholder="اكتب اسمك" required
+                                    minlength="4" maxlength="16">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">رقم موبيلك</label>
+                                <input type="text" class="form-control" name="phone" placeholder="اكتب رقمك موبيلك"
+                                    required minlength="11" maxlength="13">
+                            </div>
+                            <div class="mb-3">
+                                <label class="col-form-label">الكمية التي تريدها ( <%= product.typeAmount%> )</label>
+                                <input type="number" class="form-control" name="amount" id="amount" min="1" value="1"
+                                    maxlength="2" max="30" dir="ltr">
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">المحافظة</label>
+                                <input type="text" class="form-control" name="area" list="area"
+                                    placeholder="اكتب محافظتك" required>
+                                <datalist id="area">
+                                    <option value="الغربية">الغربية</option>
+                                    <option value="الجيزة">الجيزة</option>
+                                    <option value="الإسماعيلية">الإسماعيلية</option>
+                                    <option value="كفر الشيخ">كفر الشيخ</option>
+                                    <option value="مطروح">مطروح</option>
+                                    <option value="المنيا">المنيا</option>
+                                    <option value="المنوفية">المنوفية</option>
+                                    <option value="الوادي الجديد">الوادي الجديد</option>
+                                    <option value="شمال سيناء">شمال سيناء</option>
+                                    <option value="بورسعيد">بورسعيد</option>
+                                    <option value="القليوبية">القليوبية</option>
+                                    <option value="قنا">قنا</option>
+                                    <option value="البحر الأحمر">البحر الأحمر</option>
+                                    <option value="الشرقية">الشرقية</option>
+                                    <option value="سوهاج">سوهاج</option>
+                                    <option value="جنوب سيناء">جنوب سيناء</option>
+                                    <option value="السويس">السويس</option>
+                                    <option value="الأقصر">الأقصر</option>
+                                    <option value="القاهرة">القاهرة</option>
+                                    <option value="الإسكندرية">الإسكندرية</option>
+                                    <option value="الفيوم">الفيوم</option>
+                                    <option value="أسوان">أسوان</option>
+                                    <option value="أسيوط">أسيوط</option>
+                                    <option value="البحيرة">البحيرة</option>
+                                    <option value="بني سويف">بني سويف</option>
+                                    <option value="الدقهلية">الدقهلية</option>
+                                    <option value="دمياط">دمياط</option>
+                                </datalist>
+                            </div>
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">عنوانك</label>
+                                <input type="text" class="form-control" name="address" placeholder="اكتب عنوانك كامل"
+                                    minlength="16" maxlength="60">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <div class="item">
+                            <strong>السعر الاجمالي: <span class="total h5" id="total">
+                                    <%= product.price + 35%>
+                                </span> جنية </strong>
+                        </div>
+                        <div class="item">
+                            <button type="submit" class="btn btn-primary" form="requst-order">اطلب المنتج</button>
+                            <button type="button" class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">اغلاق</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+        <script src="/js/jqoury.min.js"></script>
+        <script src="/js/Popper.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/app.js"></script>
+</body>
+
+</html>

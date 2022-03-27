@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <title>Document</title>
+</head>
+
+<body dir="rtl">
+
+    <%- include('./part/sidebar'); %>
+
+
+        <div class="content-page">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title-page mb-4 mt-2">
+                        كل المنتجات
+                    </h1>
+
+                    <table class="table text-center align-middle table-responsive table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">اسم المنتج</th>
+                                <th scope="col">نوع المنتج</th>
+                                <th scope="col">السعر الاصلي</th>
+                                <th scope="col">سعر التخفيض</th>
+                                <th scope="col">خيارات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form action="/dashbord/product/update" method="post">
+
+                                <% for(let product of products) { %>
+                                    <tr>
+                                        <th scope="col">
+                                            <%= product.name%>
+                                        </th>
+                                        <th scope="col">
+                                            <%= product.catagory%>
+                                        </th>
+                                        <th scope="col">
+                                            <input type="text" name="price" class="form-control m-auto"
+                                                value="<%= product.price %>">
+                                        </th>
+                                        <th scope="col">
+                                            <input type="text" name="newPrice" class="form-control m-auto"
+                                                value="<%= product.newPrice %>">
+                                        </th>
+                                        <th scope="col">
+                                            <input type="hidden" name="id" value="<%= product._id %>">
+                                            <button type="submit" 
+                                            class="btn btn-primary btn-sm mt-1 mb-1"
+                                                href="#">حفظ</button>
+                                            <a class="btn btn-danger btn-sm mt-1 mb-1"
+                                                href="/dashbord/product/delete/<%= product._id %>">حذف</a>
+                                        </th>
+                                    </tr>
+                                    <%}%>
+                            </form>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+
+        <script src="/js/dashbord.js"></script>
+</body>
+
+</html>

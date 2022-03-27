@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/css/dashbord.css">
+    <script src="/ckeditor/ckeditor.js"></script>
+    <title>Document</title>
+</head>
+
+<body dir="rtl">
+
+    <%- include('./part/sidebar'); %>
+
+
+        <div class="content-page">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title-page mb-4 mt-2">
+                        اضف مقال
+                    </h1>
+                    <form action="/dashbord/blog/create" method="post" enctype="multipart/form-data">
+                        <div class="control">
+                            <label class="form-label" for="">عنوان المقال</label>
+                            <input class="form-control mb-3" type="text" name="title" autofocus
+                                placeholder="اكتب عنوان المقال" required minlength="10" maxlength="65">
+                        </div>
+                        <div class="control">
+                            <label class="form-label" for="">عنوان مسار المقال</label>
+                            <input class="form-control mb-3" type="text" name="url" placeholder="اكتب عنوان مسار المقال"
+                                required minlength="10" maxlength="65">
+                        </div>
+                        <div class="control">
+                            <label class="form-label" for="">وصف المقال</label>
+                            <textarea class="form-control mb-3" type="text" name="desc" placeholder="اكتب وصف المنتج"
+                                required minlength="100" maxlength="300"></textarea>
+                        </div>
+                        <div class="control">
+                            <label class="form-label" for="">صورة المقال </label>
+                            <input class="form-control mb-3" type="file" name="image" required>
+                        </div>
+                        <div class="control">
+                            <textarea name="content" id="editor" cols="30" rows="10" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-3">حفظ البيانات</button>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+</body>
+
+<script>
+    CKEDITOR.replace('editor');
+</script>
+<script src="/js/dashbord.js"></script>
+
+</html>

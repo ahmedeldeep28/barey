@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap");
+* {
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Cairo", sans-serif;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  padding-top: 70px;
+}
+
+section {
+  padding: 50px 0px;
+}
+img {
+  width: 100%;
+}
+a {
+  text-decoration: none;
+  color: #ffb005;
+}
+.btn {
+  box-shadow: none !important;
+  padding: 0.475rem 0.95rem;
+}
+
+.navbar .nav-link {
+  font-size: 20px;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  color: #ffb005 !important;
+}
+.product .card .card-head .discont {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-family: "Cairo", sans-serif;
+  font-size: 18px;
+}
+.header-article {
+  height: 70vh;
+}
+.header-article img {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.content-article p {
+  line-height: 1.9;
+}
+.content-article .date {
+  font-size: 20px;
+}
+.header-page {
+  height: 220px;
+  width: 100%;
+  background-color: #e3ece3ff;
+  position: relative;
+}
+.header-page .caption {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+header {
+  width: 100%;
+  min-height: 88vh;
+  background-color: #e3ece3ff;
+}
+header .swiper {
+  margin: 100px auto;
+}
+
+header .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  background-color: #e3ece3ff;
+}
+.about-img {
+  padding: 5px;
+  margin-top: 30px;
+}
+.about-img img {
+  transform: translate(10px, -15px);
+}
+.services .services-tem .head {
+  /* background: #fec200; */
+  color: #ffffff;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%); */
+  background: url("/Asset-1.png") no-repeat center center;
+  background-size: contain;
+  font-size: 48px;
+}
+
+.blog .card .card-head {
+  height: auto;
+  overflow: hidden;
+}
+.blog .card img {
+  transition: all 0.4s ease-in-out;
+}
+.blog .card:hover img {
+  transform: scale(1.2);
+}
+
+.testimonials {
+  background-color: #e3ece3;
+  position: relative;
+}
+.testimonials .img {
+  position: absolute;
+  width: 10%;
+  z-index: 1;
+}
+.testimonials .img-1 {
+  top: 0;
+  left: 50px;
+}
+.testimonials .img-2 {
+  top: 100px;
+  right: 50px;
+}
+.testimonials .img-3 {
+  right: 140px;
+  bottom: 50px;
+}
+.testimonials .swiper {
+  margin: 0px auto;
+}
+
+.testimonials .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.testimonials .card .card-footer {
+  background-color: #f6f6ff;
+}
+.qoute-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("/asset-1.png") no-repeat center center;
+  background-size: contain;
+}
+
+.list {
+  padding: 0px;
+  list-style: none;
+}
+.list .list-item {
+  padding: 6px 0px;
+  font-size: 18px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.list h5 {
+  color: #ffb005;
+  font-weight: bold;
+}
+.list .list-item .key {
+  font-weight: bold;
+}
+.product-details .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.product-details .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
